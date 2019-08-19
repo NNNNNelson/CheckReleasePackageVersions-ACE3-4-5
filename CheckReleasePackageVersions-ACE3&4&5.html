@@ -1,0 +1,638 @@
+<html style="height: 99%">
+	<head>
+		<title>[ACE.3] Check package versions are latest promoted</title>
+		<script>
+			// When a link is clicked, change its background to yellow, all other links background restore to white
+			function changeBgC(which){
+				var allAs = document.querySelectorAll("a");
+
+				for(var i = 0; i < allAs.length; i++){
+					allAs[i].style.backgroundColor = "white";
+				}
+
+				which.style.backgroundColor = "yellow";
+			}
+
+			// If newer release uses higher version, mark it with a '↑''
+			function markUpdate(){
+				var allTds = document.querySelectorAll("td");
+
+				for(var i = 0; i < allTds.length; i++){
+					// Get all td tag's children nodes, that will include 1st link, a &amp;lt;br /&amp;gt;, and 2nd link
+					allChildren = allTds[i].querySelectorAll("a");
+					// Pick the 1st link and 2nd link for further comparison and handle
+					firstLink = allChildren[0];
+					secondLink = allChildren[1];
+					thirdLink = allChildren[2];
+					// Compare 2nd link href with 1st link href, it 2nd link's href is newer, mark it with a '↑'
+					if(secondLink.href > firstLink.href){
+						secondLink.text += "↑"
+					}
+					// Compare 3rd link href with 1st link href, it 2nd link's href is newer, mark it with a '↑'
+					if(thirdLink.href > secondLink.href){
+						thirdLink.text += "↑"
+					}
+				}
+			}
+		</script>
+		<style>
+			td {
+				border-bottom: solid black 1px;
+			}
+		</style>
+	</head>
+	<body style="height:99%" onload="markUpdate()">
+		<div id="modules" style="width:24%; height:98%; position:relative; float:left; overflow: auto;">
+			<table style="height: 100%;">
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fms/ace.3/5.9.3-201807160003-595d5ae8-789" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] fms [Build: 789]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fms/ace.4/5.9.4-201811081709-c2d39206-943" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] fms [Build: 943]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fms/ace.5/5.9.5-201908061709-ca2430a2-1257" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] fms [Build: 1257]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fglam/5.9.3/5.9.3-201807090210-RELEASE-177" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] fglam [Build: 177]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fglam/5.9.4/5.9.4-201810252140-RELEASE-216" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] fglam [Build: 216]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fglam/5.9.5/5.9.5-201907120936-RELEASE-451" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] fglam [Build: 451]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fgl-core/ace.3/5.9.3-201807160003-595d5ae8" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] fgl-core [Build: 595d5ae8]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fgl-core/ace.4/5.9.4-201811081709-c2d39206" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] fgl-core [Build: c2d39206]</a> <span style="color: #d4af37; font-weight: bold;">Promoted by others!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fgl-core/ace.5/5.9.5-201908061709-ca2430a2" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] fgl-core [Build: ca2430a2]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/forge-common/havok/5.10.0-201709140235-71" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] forge-common [Build: 71]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/forge-common/havok/5.10.0-201709140235-71" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] forge-common [Build: 71]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/forge-common/havok_fms/5.10.1-201810260437-96d9809e-50" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] forge-common [Build: 50]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fglcoreui-cartridge/ace.3/5.9.3-201807160034-548" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] fglcoreui-cartridge [Build: 548]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fglcoreui-cartridge/ace.4/5.9.4-201811080655-631" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] fglcoreui-cartridge [Build: 631]</a> <span style="color: #d4af37; font-weight: bold;">Promoted by others!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/fglcoreui-cartridge/ace.5/5.9.5-201908070326-795" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] fglcoreui-cartridge [Build: 795]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/wcf/ace.2/221" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] wcf [Build: 221]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/wcf/ace.4/383" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] wcf [Build: 383]</a> <span style="color: #d4af37; font-weight: bold;">Promoted by others!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/wcf/ace.5/434" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] wcf [Build: 434]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/docs-foglight/ace.3/5.9.3-32-387135" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] docs-foglight [Build: 387135]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/docs-foglight/ace.4/5.9.4-24-387329" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] docs-foglight [Build: 387329]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/docs-foglight/ace.5/5.9.5-18-387588" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] docs-foglight [Build: 387588]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/infrastructure-cartridge/5.9.3/5.9.3-201807110250-RELEASE-123" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] infrastructure-cartridge [Build: 123]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/infrastructure-cartridge/5.9.4/5.9.4-201810260554-RELEASE-142" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] infrastructure-cartridge [Build: 142]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/infrastructure-cartridge/5.9.5/5.9.5-201907230822-RELEASE-71" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] infrastructure-cartridge [Build: 71]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/webmonitor/5.9.3/593-20180516-0513" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] webmonitor [Build: 0513]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/webmonitor/5.9.3/593-20180516-0513" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] webmonitor [Build: 0513]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/webmonitor/5.9.3/593-20180516-0513" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] webmonitor [Build: 0513]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/infrastructure-netmonitor/5.9.3/593-20180710-0002" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] infrastructure-netmonitor [Build: 0002]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/infrastructure-netmonitor/5.9.4/594-20180913-0333" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] infrastructure-netmonitor [Build: 0333]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/infrastructure-netmonitor/5.9.4/594-20180913-0333" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] infrastructure-netmonitor [Build: 0333]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/snmp-cartridge/5.9.2/5.9.2-20171110-0430" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] snmp-cartridge [Build: 0430]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/snmp-cartridge/5.9.2/5.9.2-20171110-0430" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] snmp-cartridge [Build: 0430]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/snmp-cartridge/5.9.5/5.9.5-20190321-0448" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] snmp-cartridge [Build: 0448]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/apm-soc/arthur/5985-20171009-1033" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] apm-soc [Build: 1033]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/apm-soc/arthur/5985-20171009-1033" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] apm-soc [Build: 1033]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/apm-soc/arthur/5985-20171009-1033" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] apm-soc [Build: 1033]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/enduser/ordos-october-patch/201710190202" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] enduser [Build: 201710190202]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/enduser/ordos-october-patch/201710190202" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] enduser [Build: 201710190202]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/enduser/ordos-october-patch/201710190202" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] enduser [Build: 201710190202]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/apache-monitoring/5.8.0/5803-20170226-2241" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] apache-monitoring [Build: 2241]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/apache-monitoring/5.8.0/5803-20170226-2241" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] apache-monitoring [Build: 2241]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/apache-monitoring/5.8.0/5803-20170226-2241" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] apache-monitoring [Build: 2241]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/dotnetcartridge/beni.13/5.9.13-20180327-0913" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] dotnetcartridge [Build: 0913]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/dotnetcartridge/beni.13/5.9.13-20180327-0913" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] dotnetcartridge [Build: 0913]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/dotnetcartridge/beni.13/5.9.13-20180327-0913" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] dotnetcartridge [Build: 0913]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/javaeecartridge/beni.13/5.9.13-20180327-0908" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] javaeecartridge [Build: 0908]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/javaeecartridge/beni.13/5.9.13-20180327-0908" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] javaeecartridge [Build: 0908]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/javaeecartridge/beni.13/5.9.13-20180327-0908" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] javaeecartridge [Build: 0908]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/jmxcartridge/reno.8/5.9.8-20170807-1540" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] jmxcartridge [Build: 1540]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/jmxcartridge/reno.8/5.9.8-20170807-1540" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] jmxcartridge [Build: 1540]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/jmxcartridge/reno.8/5.9.8-20170807-1540" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] jmxcartridge [Build: 1540]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-core/5_6_7/843" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] eu-core [Build: 843]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-core/5_6_7/843" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] eu-core [Build: 843]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-core/5_6_7/843" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] eu-core [Build: 843]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-fxm/5_6_5/734" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] eu-fxm [Build: 734]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-fxm/5_6_5/734" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] eu-fxm [Build: 734]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-fxm/5_6_5/734" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] eu-fxm [Build: 734]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-fxv/5_6_5/489" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] eu-fxv [Build: 489]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-fxv/5_6_5/489" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] eu-fxv [Build: 489]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/eu-fxv/5_6_5/489" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] eu-fxv [Build: 489]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/integration-cartridge/5_9_3/5.9.3-201804032237-b86" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] integration-cartridge [Build: b86]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/integration-cartridge/5_9_4/5.9.4-201811060803-b141" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] integration-cartridge [Build: b141]</a> <span style="color: #d4af37; font-weight: bold;">Promoted by others!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/integration-cartridge/5_9_4/5.9.4-201811060803-b141" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] integration-cartridge [Build: b141]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/nms-integration/cable4/5646-20140219-0133" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] nms-integration [Build: 0133]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/nms-integration/cable4/5646-20140219-0133" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] nms-integration [Build: 0133]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/nms-integration/cable4/5646-20140219-0133" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] nms-integration [Build: 0133]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/websphere-mq/5.5.5.13/55513-20151019-1732" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] websphere-mq [Build: 1732]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/websphere-mq/5.5.5.13/55513-20151019-1732" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] websphere-mq [Build: 1732]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a><del>[ACE.5] websphere-mq has been removed from ACE.5</del></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/pagerduty/1_0_3/1.0.3-201805241128" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] pagerduty [Build: 201805241128]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/pagerduty/1_0_3/1.0.3-201805241128" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] pagerduty [Build: 201805241128]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/pagerduty/1_0_3/1.0.3-201805241128" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] pagerduty [Build: 201805241128]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/db2-cartridge/5_7_5_50/20180321-1045" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] db2-cartridge [Build: 1045]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/db2-cartridge/5_9_3_10/20180919-1404" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] db2-cartridge [Build: 1404]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/db2-cartridge/5_9_4_10/20190418-1516" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] db2-cartridge [Build: 1516]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/db2-fms-installer/5_7_5_41/201709150349" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] db2-fms-installer [Build: 201709150349]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/db2-fms-installer/5_7_5_41/201709150349" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] db2-fms-installer [Build: 201709150349]</a> <span style="color: darkgrey;font-weight: bold;">No need to promote..</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/db2-fms-installer/5_7_5_41/201709150349" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] db2-fms-installer [Build: 201709150349]</a> <span style="color: darkgrey;font-weight: bold;">No need to promote..</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/oracledb-cartridge/5_7_5_50/20180322-1233" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] oracledb-cartridge [Build: 1233]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/oracledb-cartridge/5_9_3_10/20180919-1243" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] oracledb-cartridge [Build: 1243]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/oracledb-cartridge/5_9_4_10/20190418-1516" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] oracledb-cartridge [Build: 1516]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/oracledb-fms-installer/5_7_5_41/201709180035" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] oracledb-fms-installer [Build: 201709180035]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/oracledb-fms-installer/5_7_5_41/201709180035" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] oracledb-fms-installer [Build: 201709180035]</a> <span style="color: darkgrey;font-weight: bold;">No need to promote..</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/oracledb-fms-installer/5_7_5_41/201709180035" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] oracledb-fms-installer [Build: 201709180035]</a> <span style="color: darkgrey;font-weight: bold;">No need to promote..</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sqlserver-db-cartridge/5_7_5_50/20180321-1057" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] sqlserver-db-cartridge [Build: 1057]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sqlserver-db-cartridge/5_9_3_10/20180921-1434" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] sqlserver-db-cartridge [Build: 1434]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sqlserver-db-cartridge/5_9_4_10/20190418-1516" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] sqlserver-db-cartridge [Build: 1516]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sqlserver-fms-installer/5_7_5_41/201709150349" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] sqlserver-fms-installer [Build: 201709150349]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sqlserver-fms-installer/5_7_5_41/201709150349" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] sqlserver-fms-installer [Build: 201709150349]</a> <span style="color: darkgrey;font-weight: bold;">No need to promote..</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sqlserver-fms-installer/5_7_5_41/201709150349" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] sqlserver-fms-installer [Build: 201709150349]</a> <span style="color: darkgrey;font-weight: bold;">No need to promote..</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sybase-db-cartridge/5_7_5_50/201803091224" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] sybase-db-cartridge [Build: 201803091224]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sybase-db-cartridge/5_7_5_50/201803091224" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] sybase-db-cartridge [Build: 201803091224]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/sybase-db-cartridge/5_9_3_10/20181001-0900" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] sybase-db-cartridge [Build: 0900]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/automation/5_6_3_7/5.6.3.7-74-b74" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] automation [Build: b74]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/automation/5_6_3_8/5.6.3.8-92-b92" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] automation [Build: b92]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/automation/5_6_3_8/5.6.3.8-92-b92" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] automation [Build: b92]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/automation/5_6_3_7/5.6.3.7-74-b74" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] automation [Build: b74]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/automation/5_6_3_8/5.6.3.8-92-b92" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] automation [Build: b92]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/automation/5_6_3_8/5.6.3.8-92-b92" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] automation [Build: b92]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/active-directory/5.7.2.1/5.7.2.1-201803070851-b103" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] active-directory [Build: b103]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/active-directory/5.7.2.2/5.7.2.2-201810310935-b122" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] active-directory [Build: b122]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/active-directory/5.7.2.3/5.7.2.3-201908010630-b198" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] active-directory [Build: b198]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/exchange/5.7.2.1/5.7.2.1-201803070851-b103" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] exchange [Build: b103]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/exchange/5.7.2.2/5.7.2.2-201810310935-b122" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] exchange [Build: b122]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/exchange/5.7.2.3/5.7.2.3-201908010630-b198" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] exchange [Build: b198]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/capacity/5_7_6/5.7.6-20180713-0647-1288" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] capacity [Build: 1288]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/capacity/5_7_7/5.7.7-20181121-1505-1418" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] capacity [Build: 1418]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/capacity/5_8_0/5.8.0-20190807-0719-1668" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] capacity [Build: 1668]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-capacity/5_7_6/5.7.6-20180706-0729-60" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-capacity [Build: 60]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-capacity/5_7_7/5.7.7-20181030-0749-68" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-capacity [Build: 68]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a><del>[ACE.5] capacity management has been removed from ACE.5</del></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-change-analyzer/5_7_6/5.7.6-20180713-0647-741" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-change-analyzer [Build: 741]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-change-analyzer/5_7_7/5.7.7-20181031-0742-825" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-change-analyzer [Build: 825]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-change-analyzer/5_8_0/5.8.0-20190802-0903-1019" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-change-analyzer [Build: 1019]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-chargeback/5_7_6/5.7.6-20180711-0949-445" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-chargeback [Build: 445]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-chargeback/5_7_7/5.7.7-20181030-0749-453" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-chargeback [Build: 453]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a><del>[ACE.5] chargeback has been removed from ACE.5</del></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-common-analytics/5_7_6/5.7.6-20180713-0645-856" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-common-analytics [Build: 856]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-common-analytics/5_7_7/5.7.7-20181031-0740-913" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-common-analytics [Build: 913]</a> <span style="color: #d4af37; font-weight: bold;">Promoted by others!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-common-analytics/5_8_0/5.8.0-20190801-0730-1057" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-common-analytics [Build: 1057]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-drp/5_7_6/5.7.6-20180705-0928-464" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-drp [Build: 464]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-drp/5_7_7/5.7.7-20181011-0936-474" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-drp [Build: 474]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-drp/5_8_0/5.8.0-20190731-0720-515" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-drp [Build: 515]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-hyper-v/5_7_6/5.7.6-20180716-0222-416" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-hyper-v [Build: 416]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-hyper-v/5_7_7/5.7.7-20181102-0723-462" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-hyper-v [Build: 462]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-hyper-v/5_8_0/5.8.0-20190807-0712-686" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-hyper-v [Build: 686]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/openstack-cartridge/5_7_4/5.7.4-20170914-0403-27" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] openstack-cartridge [Build: 27]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/openstack-cartridge/5_7_4/5.7.4-20170914-0403-27" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] openstack-cartridge [Build: 27]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/openstack-cartridge/5_7_4/5.7.4-20170914-0403-27" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] openstack-cartridge [Build: 27]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/ome-integration/5.7.0/5.7.0-20160504-2321" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] ome-integration [Build: 2321]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/ome-integration/5.7.0/5.7.0-20160504-2321" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] ome-integration [Build: 2321]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/ome-integration/5.7.0/5.7.0-20160504-2321" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] ome-integration [Build: 2321]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/optimizer/5_7_6/5.7.6-20180713-0647-916" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] optimizer [Build: 916]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/optimizer/5_7_7/5.7.7-20181031-0742-983" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] optimizer [Build: 983]</a>  <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/optimizer/5_8_0/5.8.0-20190801-0732-1113" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] optimizer [Build: 1113]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/optimizer-automation/5_7_6/5.7.6-20180716-0203-551" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] optimizer-automation [Build: 551]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/optimizer-automation/5_7_7/5.7.7-20181011-0946-565" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] optimizer-automation [Build: 565]</a>  <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/optimizer-automation/5_8_0/5.8.0-20190731-0721-607" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] optimizer-automation [Build: 607]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-optimizer/5_7_6/5.7.6-20180713-0653-973" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-vmware-optimizer [Build: 973]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-optimizer/5_7_7/5.7.7-20181108-0654-1043" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-vmware-optimizer [Build: 1043]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-optimizer/5_8_0/5.8.0-20190801-0735-1172" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-vmware-optimizer [Build: 1172]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-hyperv-optimizer/5_7_6/5.7.6-20180713-0655-1542" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-hyperv-optimizer [Build: 1542]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-hyperv-optimizer/5_7_7/5.7.7-20181108-0708-1685" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-hyperv-optimizer [Build: 1685]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-hyperv-optimizer/5_8_0/5.8.0-20190802-0904-1987" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-hyperv-optimizer [Build: 1987]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-perspectives/5_7_6/5.7.6-20180710-1003-523" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-perspectives [Build: 523]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-perspectives/5_7_7/5.7.7-20181107-0202-538" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-perspectives [Build: 538]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-perspectives/5_8_0/5.8.0-20190808-0753-599" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-perspectives [Build: 599]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vcloud-director/1_3_0/1.3.0-20180713-0655-1523" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-vcloud-director [Build: 1523]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vcloud-director/1_4_0/1.4.0-20181102-0919-1698" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-vcloud-director [Build: 1698]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vcloud-director/5_7_4_1/5.7.4.1-20190802-0904-119" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-vcloud-director [Build: 119]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a><del>[ACE.3] ACE.3 didn't package vfog-cloud-manager</del></a>
+						<br/>
+						<a><del>[ACE.4] ACE.4 didn't package vfog-cloud-manager</del></a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-cloud-manager/1_6_0/1.6.0-20190807-0253-2066" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-cloud-manager [Build: 2066]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a><del>[ACE.3] ACE.3 didn't package cloud-migration</del></a>
+						<br/>
+						<a><del>[ACE.4] ACE.4 didn't package cloud-migration</del></a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/cloud-migration/5_8_0/5.8.0-20190808-0839-84" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] cloud-migration [Build: 84]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-rapid-recovery/1_4_0/1.4.0-20180716-0410-915" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-rapid-recovery [Build: 915]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-rapid-recovery/1_5_0/1.5.0-20181108-0748-930" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-rapid-recovery [Build: 930]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-rapid-recovery/1_6_0/1.6.0-20190807-0922-1095" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-rapid-recovery [Build: 1095]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-cartridge/5_7_6/5.7.6-20180717-0321-777" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-vmware-cartridge [Build: 777]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-cartridge/5_7_7/5.7.7-20181108-0708-851" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-vmware-cartridge [Build: 851]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-cartridge/5_8_0/5.8.0-20190807-0729-1111" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-vmware-cartridge [Build: 1111]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-view/5_7_6/5.7.6-20180713-0802-282" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-vmware-view [Build: 282]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-view/5_7_7/5.7.7-20181109-0935-305" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-vmware-view [Build: 305]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-vmware-view/5_8_0/5.8.0-20190802-0921-399" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-vmware-view [Build: 399]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/foglight-storagemanagement/4_6_0/4.6.0-201807180840-212" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] foglight-storagemanagement [Build: 212]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/foglight-storagemanagement/4_6_5/4.6.5-201811070912-247" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] foglight-storagemanagement [Build: 247]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/foglight-storagemanagement/4_7_0/4.7.0-201908070746-323" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] foglight-storagemanagement [Build: 323]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/dell/managed-topology-service/1.0.3/1.0.3.0-201711080137" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] managed-topology-service [Build: 201711080137]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/dell/managed-topology-service/1.0.3/1.0.3.0-201711080137" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] managed-topology-service [Build: 201711080137]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/dell/managed-topology-service/1.0.3/1.0.3.0-201711080137" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] managed-topology-service [Build: 201711080137]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/dell/pythonagent-cartridge/1.0.3/1.0.3-201801170901-37" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] pythonagent-cartridge [Build: 37]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/dell/pythonagent-cartridge/1.0.3/1.0.3-201809280718-38" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] pythonagent-cartridge [Build: 38]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/dell/pythonagent-cartridge/1.0.4/1.0.4-201903210330-44" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] pythonagent-cartridge [Build: 44]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/foglight-storagemanagement-sdk/1.0.3/1.0.3-201801050531-427" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] foglight-storagemanagement-sdk [Build: 427]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/foglight-storagemanagement-sdk/1.0.3/1.0.3-201801050531-427" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] foglight-storagemanagement-sdk [Build: 427]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/foglight-storagemanagement-sdk/1.0.3/1.0.3-201801050531-427" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] foglight-storagemanagement-sdk [Build: 427]</a> <span style="color: #d4af37; font-weight: bold;">Previously Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a><del>[ACE.3] ACE.3 has not packaged smisarray-pythonagent cartridge</del></a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/smisarray-pythonagent/1.0.3/1.3.0-201810251413-dev" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] smisarray-pythonagent [Build: dev]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/smisarray-pythonagent/1.4.0/1.4.0-201907291505-dev" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] smisarray-pythonagent [Build: 201907291505-dev]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-xendesktop/5_7_6/5.7.6-20180706-0755-129" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-xendesktop [Build: 129]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-xendesktop/5_7_7/5.7.7-20181030-0805-150" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-xendesktop [Build: 150]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-xendesktop/5_8_0/5.8.0-20190731-0219-241" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-xendesktop [Build: 241]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-scvmm/5_7_6/5.7.6-20180706-0743-90" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-scvmm [Build: 90]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-scvmm/5_7_7/5.7.7-20181030-0853-101" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-scvmm [Build: 101]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-scvmm/5_8_0/5.8.0-20190731-0208-143" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-scvmm [Build: 143]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/container-manager/0_9_0/0.9.0-20180716-0922-121" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] container-manager [Build: 121]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/container-manager/1_0_0/1.0.0-20181106-0740-226" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] container-manager [Build: 226]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/container-manager/2_0_0/2.0.0-20190807-0200-513" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] container-manager [Build: 513]</a>  <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/cost-director/5_7_6/5.7.6-20180718-0823-249" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] cost-director [Build: 249]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/cost-director/5_7_7/5.7.7-20181108-0857-357" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] cost-director [Build: 357]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/cost-director/5_8_0/5.8.0-20190807-0716-614" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] cost-director [Build: 614]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-netvault/1_0_0/1.0.0-20180713-0717-94" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.3] vfog-netvault [Build: 94]</a>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-netvault/1_1_0/1.1.0-20181101-0627-116" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.4] vfog-netvault [Build: 116]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+						<br/>
+						<a href="https://azrepos.labs.quest.com/bundle/quest/vfog-netvault/1_2_0/1.2.0-20190807-0917-150" target="iframe_repo_window" onclick="changeBgC(this)">[ACE.5] vfog-netvault [Build: 150]</a> <span style="color: #d4af37; font-weight: bold;">Promoted!</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="repo_page" style="width:75%; height: 98%; position:relative; float:right;">
+			<iframe name="iframe_repo_window" frameborder="0" style="width:100%; height:100%;">[ACE.3] </iframe>
+		</div>
+	</body>
+</html>
